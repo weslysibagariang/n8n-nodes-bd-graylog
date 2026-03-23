@@ -1,0 +1,44 @@
+{
+  "name": "n8n-nodes-bd-graylog",
+  "version": "0.1.0",
+  "description": "Node to integrate with Graylog API in n8n with leveraging AWS SSM Parameter Store for secure credential management.",
+  "license": "MIT",
+  "homepage": "",
+  "keywords": ["n8n-community-node-package"],
+  "author": {
+    "name": "Wesly Sibagariang",
+    "email": "wesly.sibagariang@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weslysibagariang/n8n-nodes-bd-graylog.git"
+  },
+  "scripts": {
+    "build": "n8n-node build",
+    "build:watch": "tsc --watch",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "release": "n8n-node release",
+    "prepublishOnly": "n8n-node prerelease"
+  },
+  "files": ["dist"],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": false,
+    "credentials": [
+      "dist/credentials/GithubIssuesApi.credentials.js",
+      "dist/credentials/GithubIssuesOAuth2Api.credentials.js"
+    ],
+    "nodes": ["dist/nodes/GithubIssues/GithubIssues.node.js"]
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "*",
+    "eslint": "9.32.0",
+    "prettier": "3.6.2",
+    "release-it": "^17.1.1",
+    "typescript": "5.9.2"
+  },
+  "peerDependencies": { "n8n-workflow": "*" },
+  "dependencies": { "@aws-sdk/client-ssm": "^3.1014.0" }
+}
